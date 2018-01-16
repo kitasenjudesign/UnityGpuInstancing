@@ -2,7 +2,7 @@
 
 ![img](a.jpg)
  
-# reference
+# Reference
 * GPU Instancing + Compute Shader + Boids 
 https://github.com/IndieVisualLab/UnityGraphicsProgramming/tree/master/Assets/BoidsSimulationOnGPU
 
