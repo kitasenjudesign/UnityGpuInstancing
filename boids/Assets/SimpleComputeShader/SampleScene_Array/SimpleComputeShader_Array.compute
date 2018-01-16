@@ -1,0 +1,22 @@
+﻿#pragma kernel KernelFunction_A
+#pragma kernel KernelFunction_B
+
+RWStructuredBuffer<int> intBuffer;
+int intValue;
+
+//SV_GroupID = カーネルを実行するスレッドがどのグループで実行されているかxyz
+//SV_GroupThreadID = カーネルを実行するスレッドがグループの何番目のスレッドであるかxyz
+
+[numthreads(1, 1, 1)]
+void KernelFunction_A(uint3 groupID : SV_GroupID,
+                      uint3 groupThreadID : SV_GroupThreadID)
+{
+    intBuffer[groupThreadID.x] = groupThreadID.x * intValue;
+}
+
+[numthreads(1, 1, 1)]
+void KernelFunction_B(uint3 groupID : SV_GroupID,
+                      uint3 groupThreadID : SV_GroupThreadID)
+{
+    intBuffer[groupThreadID.x] += 1;
+}
